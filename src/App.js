@@ -19,19 +19,18 @@ function App() {
 
   const select = (recipe) => {
     setSelectedRecipe(recipe);
-    console.log("hi");
   };
 
   const unselect = () => {
     setSelectedRecipe(null);
-  }
+  };
 
   let renderContent;
   if (selectedRecipe) {
     renderContent = (
       <div>
         <button type="button" onClick={unselect}>Return to list</button>
-        <Recipe recipe={selectedRecipe} select={select} />
+        <Recipe recipe={selectedRecipe} select={select} info />
       </div>
     );
   } else {
@@ -39,7 +38,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="container">
       <Search search={search} />
       {renderContent}
     </div>

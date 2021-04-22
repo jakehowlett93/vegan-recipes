@@ -12,3 +12,14 @@
 .recipe h3 {
   font-size: 12px;
 }
+
+@media (min-width: 768px) {
+  .recipe img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .recipe h3 {
+    font-size: 20px;
+  }
+}

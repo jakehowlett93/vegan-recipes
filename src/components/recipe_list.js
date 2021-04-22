@@ -4,7 +4,7 @@ import Recipe from './recipe';
 
 const RecipeList = ({ recipes, select }) => {
   const recipeList = recipes.map((recipe) => {
-    return <Recipe recipe={recipe} key={recipe.id} select={select} />;
+    return <Recipe recipe={recipe} key={recipe.id} select={select} info={false} />;
   });
 
   return (

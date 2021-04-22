@@ -8,9 +8,8 @@ ReactDOM.render(
   <React.StrictMode>
     <h1 className="center">Vegan Recipe Finder</h1>
     <App />
-    <p>
-      Powered by 
-      <a href="https://spoonacular.com/food-api">Spoonacular Api</a>
+    <p className="center">
+      Powered by <a href="https://spoonacular.com/food-api">Spoonacular Api</a>
     </p>
   </React.StrictMode>,
   document.getElementById('root')
