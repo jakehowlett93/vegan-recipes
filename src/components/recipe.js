@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Recipe = () => {
+const Recipe = ({ recipe }) => {
   return (
-    <p>Selected recipe will go here</p>
-  )
-}
+    <p>{recipe.title}</p>
+  );
+};
 
 export default Recipe;

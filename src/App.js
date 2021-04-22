@@ -6,7 +6,7 @@ import Recipe from './components/recipe';
 import RecipeList from './components/recipe_list';
 
 function App() {
-  const [recipes, setRecipes] = useState("");
+  const [recipes, setRecipes] = useState([]);
 
   const search = (term) => {
     console.log(term);
@@ -25,7 +25,7 @@ function App() {
       </div>
       <div className="right-scene">
         <div className="selected-recipe">
-          <Recipe  />
+          {/* <Recipe /> */}
         </div>
       </div>
     </div>
