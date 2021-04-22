@@ -20,5 +20,6 @@ module.exports = {
   rules: {
     "react/jsx-filename-extension": [0],
     quotes: [0],
+    "react/prop-types": "off",
   },
 };
