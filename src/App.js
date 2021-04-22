@@ -21,11 +21,11 @@ function App() {
     <div>
       <div className="left-scene">
         <Search search={search} />
-        <RecipeList />
+        <RecipeList recipes={recipes} />
       </div>
       <div className="right-scene">
         <div className="selected-recipe">
-          <Recipe recipes={recipes} />
+          <Recipe  />
         </div>
       </div>
     </div>
