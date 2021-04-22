@@ -1,6 +1,8 @@
 import React from 'react';
 
-const RecipeList = () => {
+import Recipe from './recipe';
+
+const RecipeList = ({ recipes }) => {
   return (
     <p>List of recipes goes here</p>
   );

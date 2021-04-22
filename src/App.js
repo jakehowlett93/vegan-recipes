@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
 import Search from './components/search';
@@ -6,6 +6,7 @@ import Recipe from './components/recipe';
 import RecipeList from './components/recipe_list';
 
 function App() {
+  const [recipes, setRecipes] = useState("");
 
   const search = (term) => {
     console.log(term);
@@ -13,7 +14,7 @@ function App() {
     const url = `https://api.spoonacular.com/recipes/complexSearch?query=${term}&number=10&diet=vegan&apiKey=${apiKey}`;
     fetch(url)
       .then((response) => response.json())
-      .then((json) => console.log(json));
+      .then((json) => setRecipes(json.results));
   };
 
   return (
@@ -24,7 +25,7 @@ function App() {
       </div>
       <div className="right-scene">
         <div className="selected-recipe">
-          <Recipe />
+          <Recipe recipes={recipes} />
         </div>
       </div>
     </div>
