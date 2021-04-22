@@ -7,10 +7,9 @@ import RecipeList from './components/recipe_list';
 
 function App() {
   const [recipes, setRecipes] = useState([]);
-  const [selectedRecipe, setSelectedRecipe] = useState({ title: "" });
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   const search = (term) => {
-    console.log(term);
     const apiKey = process.env.REACT_APP_API_KEY;
     const url = `https://api.spoonacular.com/recipes/complexSearch?query=${term}&number=10&diet=vegan&apiKey=${apiKey}`;
     fetch(url)
@@ -22,15 +21,17 @@ function App() {
     setSelectedRecipe(recipe);
   };
 
+  const renderSelected = selectedRecipe === null ? "" : <Recipe recipe={selectedRecipe} select={select} />
+
   return (
-    <div>
+    <div className="container">
       <div className="left-scene">
         <Search search={search} />
         <RecipeList recipes={recipes} select={select} />
       </div>
       <div className="right-scene">
         <div className="selected-recipe">
-          <Recipe recipe={selectedRecipe} select={select} />
+          {renderSelected}
         </div>
       </div>
     </div>

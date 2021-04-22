@@ -6,9 +6,9 @@ const Recipe = ({ recipe, select }) => {
   };
 
   return (
-    <div onClick={handleClick}>
+    <div onClick={handleClick} className="recipe">
       <img src={recipe.image} className="" alt="food" />
-      <p>{recipe.title}</p>
+      <h3>{recipe.title}</h3>
     </div>
   );
 };

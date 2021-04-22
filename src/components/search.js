@@ -7,6 +7,7 @@ const Search = ({ search }) => {
 
   return (
     <div>
+      <p>Search by title or ingredients!</p>
       <input type="text" onChange={handleChange} />
     </div>
   );
