@@ -3,8 +3,11 @@ import React from 'react';
 const Search = () => {
 
   return (
-    <input type="text" />
-  )
+    <div>
+      <input type="text" />
+      <input type="text" />    
+    </div>
+  );
 }
 
 export default Search;
