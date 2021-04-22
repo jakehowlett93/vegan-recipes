@@ -7,6 +7,7 @@ import RecipeList from './components/recipe_list';
 
 function App() {
   const [recipes, setRecipes] = useState([]);
+  const [selectedRecipe, setSelectedRecipe] = useState({ title: "" });
 
   const search = (term) => {
     console.log(term);
@@ -17,15 +18,19 @@ function App() {
       .then((json) => setRecipes(json.results));
   };
 
+  const select = (recipe) => {
+    setSelectedRecipe(recipe);
+  };
+
   return (
     <div>
       <div className="left-scene">
         <Search search={search} />
-        <RecipeList recipes={recipes} />
+        <RecipeList recipes={recipes} select={select} />
       </div>
       <div className="right-scene">
         <div className="selected-recipe">
-          {/* <Recipe /> */}
+          <Recipe recipe={selectedRecipe} select={select} />
         </div>
       </div>
     </div>
