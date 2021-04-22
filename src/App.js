@@ -11,7 +11,7 @@ function App() {
 
   const search = (term) => {
     const apiKey = process.env.REACT_APP_API_KEY;
-    const url = `https://api.spoonacular.com/recipes/complexSearch?query=${term}&number=10&diet=vegan&apiKey=${apiKey}`;
+    const url = `https://api.spoonacular.com/recipes/complexSearch?query=${term}&number=10&diet=vegan&addRecipeInformation=true&apiKey=${apiKey}`;
     fetch(url)
       .then((response) => response.json())
       .then((json) => setRecipes(json.results));
@@ -19,21 +19,29 @@ function App() {
 
   const select = (recipe) => {
     setSelectedRecipe(recipe);
+    console.log("hi");
   };
 
-  const renderSelected = selectedRecipe === null ? "" : <Recipe recipe={selectedRecipe} select={select} />
+  const unselect = () => {
+    setSelectedRecipe(null);
+  }
+
+  let renderContent;
+  if (selectedRecipe) {
+    renderContent = (
+      <div>
+        <button type="button" onClick={unselect}>Return to list</button>
+        <Recipe recipe={selectedRecipe} select={select} />
+      </div>
+    );
+  } else {
+    renderContent = <RecipeList recipes={recipes} select={select} />;
+  }
 
   return (
-    <div className="container">
-      <div className="left-scene">
-        <Search search={search} />
-        <RecipeList recipes={recipes} select={select} />
-      </div>
-      <div className="right-scene">
-        <div className="selected-recipe">
-          {renderSelected}
-        </div>
-      </div>
+    <div>
+      <Search search={search} />
+      {renderContent}
     </div>
   );
 }
